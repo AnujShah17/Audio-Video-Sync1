@@ -34,4 +34,3 @@ def pre_req():
             time.sleep(1)
 
     testVideo.close_app()
-pre_req()
