@@ -6,9 +6,6 @@ from testScripts import testVideo
 import pyfirmata
 import pandas as pd
 
-lst1 = []
-lst2 = []
-lst3 = []
 
 
 def arduino():
@@ -19,10 +16,8 @@ def arduino():
 def getArduino(pinA0,port):
         global flash_current_time
         start_time = time.time()
-        lst1.append(start_time)
 
         pin_time = time.time()
-        lst2.append(pin_time)
         it = pyfirmata.util.Iterator(port)
         it.start()
         output = []
@@ -30,7 +25,6 @@ def getArduino(pinA0,port):
         for i in range(5):
             if i == 3:
                 flash_current_time = time.time()
-                lst3.append(flash_current_time)
             read_out = pinA0.read()
             output.append(read_out)
             # print(read_out)
