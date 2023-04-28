@@ -1,7 +1,5 @@
 import threading
-import time
 from arduino import flash_detect
-import pandas as pd
 from testScripts import testVideo
 from reuseable import serverAppium
 from audio import listen
