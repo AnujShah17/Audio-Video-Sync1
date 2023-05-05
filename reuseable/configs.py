@@ -9,4 +9,5 @@ class MobileConfig:
         'platformName': 'Android',
         'platformVersion': '11',
         'udid': 'HT81Y1A02145'
+
     }
