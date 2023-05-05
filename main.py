@@ -1,8 +1,10 @@
 import threading
+
 import time
 import simple_colors
 from arduino import flash_detect
 import pandas as pd
+
 
 from reuseable import serverAppium
 from testScripts import testVideo

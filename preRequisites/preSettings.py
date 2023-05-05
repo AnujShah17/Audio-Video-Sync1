@@ -45,5 +45,6 @@ def pre_req():
 
     testVideo.close_app()
 
+
     return ser
 # pre_req()

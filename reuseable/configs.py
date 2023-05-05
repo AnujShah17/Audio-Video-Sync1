@@ -1,3 +1,5 @@
+
+
 class MobileConfig:
     port = 4723
     IP = "0.0.0.0"
@@ -7,4 +9,5 @@ class MobileConfig:
         'platformName': 'Android',
         'platformVersion': '11',
         'udid': 'HT81Y1A02145'
+
     }

@@ -5,14 +5,12 @@ import serial.tools.list_ports
 from testScripts import testVideo
 import pyfirmata
 
-lst1 = []
-lst2 = []
-lst3 = []
 
 
 def arduino():
     print("----intilizing the arduino----")
     board=[p.device for p in serial.tools.list_ports.comports() if 'USB-SERIAL' in p.description]
+
     ser = serial.Serial(board[0], 9600)
 
     print("----intilizing Complete ----")
@@ -34,6 +32,7 @@ def getArduino(pin):
 
         x=x/len(ouy)
         if int(x)>=100:
+
             print("Flash detected :True")
             print('Timestamp of Flash detected:', start_time)
             print("Flash detection :", x)

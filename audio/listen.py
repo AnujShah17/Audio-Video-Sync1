@@ -55,8 +55,7 @@ def listen():
     print("sending data..", time.time())
     end = time.time()
     print("text:", text)
-    # print("starting time: ", start)
-    # print("ending time: ", end)
+
 
 # p=listen()
 # # print(p)
