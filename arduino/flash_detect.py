@@ -34,7 +34,7 @@ def getArduino(pin):
         if int(x)>=100:
 
             print("Flash detected :True")
-            print('Timestamp of Flash detected:', start_time)
+            # print('Timestamp of Flash detected:', start_time)
             print("Flash detection :", x)
-            testVideo.dict["flash detection"] = x
+            # testVideo.dict["flash detection"] = x
 
