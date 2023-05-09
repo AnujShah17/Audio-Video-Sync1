@@ -8,6 +8,6 @@ class MobileConfig:
         'deviceName': 'Pixel 2',
         'platformName': 'Android',
         'platformVersion': '11',
-        'udid': 'HT81Y1A02145'
+        'udid': 'emulator-5554'
 
     }
