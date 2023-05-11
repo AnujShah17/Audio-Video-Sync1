@@ -5,8 +5,7 @@ import simple_colors
 from arduino import flash_detect
 import pandas as pd
 
-
-from reuseable import serverAppium
+from reuseable.configs import MobileConfig
 from testScripts import testVideo
 from audio import listen
 import excel_data
@@ -33,28 +32,27 @@ if __name__ == '__main__':
         data1=[]
         # wb, ws, header_format=excel_data.Starting_workbook()
 
-        for i in range(3):
-            thread1 = threading.Thread(target=testVideo.play_video)
-            thread1.start()
-            # thread3 = threading.Thread(target=listen.listen)
-            # thread3.start()
-            time.sleep(1)
-            # thread2 = threading.Thread(target=flash_detect.getArduino(ser))
-            # thread2.start()
-            thread6 = threading.Thread(target=listen.audio_return)
-            thread6.start()
-            testVideo.timeSleep()
 
-
-            thread1.join()
-            # thread2.join()
-            # thread3.join()
-            thread6.join()
-            time.sleep(5)
-            print(testVideo.dict)
-            c=excel_data.appending(testVideo.dict)
-            data1.append(c)
-            print("....//iteration completed//....", i+1)
+        thread1 = threading.Thread(target=testVideo.play_video)
+        thread1.start()
+        # thread3 = threading.Thread(target=listen.listen)
+        # thread3.start()
+        # time.sleep(1)
+        thread2 = threading.Thread(target=flash_detect.getArduino(ser))
+        thread2.start()
+        thread6 = threading.Thread(target=listen.audio_return)
+        thread6.start()
+        # testVideo.timeSleep()
+        thread1.join()
+        # thread2.join()
+        # thread3.join()
+        thread6.join()
+        time.sleep(5)
+        print(testVideo.dict)
+        c=excel_data.appending(testVideo.dict)
+        data1.append(c)
+        # print("....//iteration completed//....", i+1)
+        print("audio_time",MobileConfig.audio_det)
         # excel_data.creating_table(ws, data1, header_format)
         testVideo.close_app()
         # excel_data.close_workbook(wb)

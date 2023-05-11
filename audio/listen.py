@@ -2,7 +2,7 @@ import speech_recognition as sr
 # import datetime
 from testScripts import testVideo
 import time
-
+from reuseable.configs import MobileConfig
 r = sr.Recognizer()
 global m
 m = sr.Microphone()
@@ -20,6 +20,7 @@ def audio_return():
             print(r.energy_threshold)
             if r.energy_threshold>Threshold_value:
                 sound_time = time.time()
+                MobileConfig.audio_det.append(sound_time)
                 print("True")
                 print("----Timestamp of sound detct:",sound_time,"----")
             else:

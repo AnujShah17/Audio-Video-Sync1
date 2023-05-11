@@ -1,10 +1,12 @@
 
 import subprocess
 global udid
+
 class MobileConfig:
     port = 4723
     IP = "0.0.0.0"
-
+    flash=[]
+    audio_det=[]
 
 
     def get_device_udid(self):

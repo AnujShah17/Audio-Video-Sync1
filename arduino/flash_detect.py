@@ -1,7 +1,7 @@
 import time
 
 import serial.tools.list_ports
-
+from reuseable.configs import MobileConfig
 from testScripts import testVideo
 import pyfirmata
 
@@ -32,7 +32,7 @@ def getArduino(pin):
 
         x=x/len(ouy)
         if int(x)>=100:
-
+            MobileConfig.flash.append(start_time)
             print("Flash detected :True")
             print('Timestamp of Flash detected:', start_time)
             print("Flash detection :", x)
