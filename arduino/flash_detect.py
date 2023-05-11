@@ -8,12 +8,12 @@ import pyfirmata
 
 
 def arduino():
-    print("----intilizing the arduino----")
+    print("----Intilizing the arduino----")
     board=[p.device for p in serial.tools.list_ports.comports() if 'USB-SERIAL' in p.description]
 
     ser = serial.Serial(board[0], 9600)
 
-    print("----intilizing Complete ----")
+    print("----Intilizing Complete ----")
     return ser
 def getArduino(pin):
         ouy=[]
