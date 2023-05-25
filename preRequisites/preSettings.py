@@ -4,9 +4,9 @@ import time
 import simple_colors
 
 from arduino import flash_detect
-from audio import listen
 from reuseable import serverAppium
 from testScripts import testVideo
+
 
 def pre_req():
     """
@@ -28,7 +28,7 @@ def pre_req():
     except:
         pass
     print("----Initializing pin and port with arduino----")
-    ser,led = flash_detect.arduino()
+    ser, led = flash_detect.arduino()
     time.sleep(2)
     # for i in range(5):
     print(simple_colors.green("----Starting the process----"))
@@ -55,5 +55,5 @@ def pre_req():
 
     testVideo.close_app()
 
-    return ser,led
+    return ser, led
 # pre_req()

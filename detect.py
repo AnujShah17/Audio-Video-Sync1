@@ -2,13 +2,14 @@ import speech_recognition as sr
 import datetime
 
 r = sr.Recognizer()
-m= sr.Microphone()
+m = sr.Microphone()
+
 
 def detect():
     print("A moment of silence, please...")
     with m as source: r.adjust_for_ambient_noise(source)
     print("Set minimum energy threshold to {}".format(r.energy_threshold))
-    f = sr.AudioFile(r"C:/Users/158612/OneDrive - Arrow Electronics, Inc/Desktop/audio project")
+    sr.AudioFile(r"C:/Users/158612/OneDrive - Arrow Electronics, Inc/Desktop/audio project")
     with m as source:
         print("Speak something...", datetime.datetime.now())
         # listen for audio input from the microphone
@@ -28,7 +29,6 @@ def detect():
     print("text:", text)
     print("starting time: ", start)
     print("ending time: ", end)
+
+
 detect()
-
-
-

@@ -21,7 +21,7 @@ if __name__ == '__main__':
         x=False
         print(simple_colors.red("----pre settings has failed!----"))
     if (x==True):
-    #     iterartion_times = int(input("how many times you wanna play "))
+    #     iterartion_times = int(input("how many times you want to play "))
         try:
             print(simple_colors.blue("----Relauching the application----"))
             testVideo.launch_appium_driver()

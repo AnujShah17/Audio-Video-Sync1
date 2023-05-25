@@ -1,9 +1,9 @@
 import time
 
-import serial.tools.list_ports
-from reuseable.configs import MobileConfig
-from testScripts import testVideo
 import pyfirmata
+import serial.tools.list_ports
+
+from reuseable.configs import MobileConfig
 
 lst1 = []
 lst2 = []
@@ -29,8 +29,10 @@ def arduino():
     it = pyfirmata.util.Iterator(port)
     it.start()
     output = []
-    return pin,led
-def getArduino(pin,led):
+    return pin, led
+
+
+def getArduino(pin, led):
     """
         Reads data from an Arduino pin and controls an LED based on the readings.
 
@@ -40,34 +42,33 @@ def getArduino(pin,led):
 
 
         """
-    y=0
+    y = 0
     while True:
-        if y>7:
+        if y > 7:
             break
         global start_time
-        start_time=time.time()
+        start_time = time.time()
         read_out = pin.read()
         # print(read_out)
         time.sleep(1)
         if read_out is not None:
-            if (read_out>=0):
-                tup_flash=(read_out,start_time)
+            if read_out >= 0:
+                tup_flash = (read_out, start_time)
                 MobileConfig.flash.append(tup_flash)
-                if read_out>0.15:
+                if read_out > 0.15:
                     led.write(1)
                 else:
                     led.write(0)
-                if read_out>0.2:
-                    y+=1
+                if read_out > 0.2:
+                    y += 1
                 else:
-                    y=0
+                    y = 0
                 print("Flash detected :True")
                 print('Timestamp of Flash detected:', start_time)
-                print("Flash detection :", read_out*1000)
+                print("Flash detection :", read_out * 1000)
             else:
                 led.write(0)
                 # y+=1
-
 
 #
 # x,l=arduino()
