@@ -43,7 +43,7 @@ class audio(object):
 
             sound_time = time.time()
             print(r.energy_threshold)
-            time.sleep(0.00002)
+            time.sleep(0.002)
             if r.energy_threshold >= Threshold_value:
                 tup_audio = (r.energy_threshold, sound_time)
                 MobileConfig.audio_det.append(tup_audio)

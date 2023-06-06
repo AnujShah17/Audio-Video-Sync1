@@ -49,7 +49,7 @@ def getArduino(pin,led):
         read_out = pin.read()
         start_time = time.time()
         # print(read_out)
-        time.sleep(0.02)
+        time.sleep(0.002)
         if read_out is not None:
             if read_out >= 0:
                 tup_flash = (read_out,start_time)
