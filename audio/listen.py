@@ -37,7 +37,7 @@ class audio(object):
         a = 0
         print("----intilizing the microphone----")
         while True:
-            if a > 1000:
+            if a > 10000:
                 event.set()
                 break
 
