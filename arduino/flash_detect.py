@@ -31,7 +31,7 @@ def arduino():
     output = []
     return pin,led
 
-def getArduino(pin,led):
+def getArduino(pin,led,event):
     """
         Reads data from an Arduino pin and controls an LED based on the readings.
 
@@ -68,7 +68,7 @@ def getArduino(pin,led):
             else:
                 led.write(0)
                 # y+=1
-
+        event.wait()
 
 
 #

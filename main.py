@@ -33,6 +33,7 @@ if __name__ == '__main__':
         except:
             pass
 
+        event=threading.Event()
         # pin,port=flash_detect.arduino()
         data1 = []
         # wb, ws, header_format=excel_data.starting_workbook()
@@ -43,16 +44,23 @@ if __name__ == '__main__':
         time.sleep(1)
         thread1 = threading.Thread(target=testgoogleFile.pal)
         thread1.start()
-        thread6 = threading.Thread(target=listen.audio_p)
+        thread6 = threading.Thread(target=listen.audio_p,args=(event,))
         thread6.start()
         # thread6=threading.Thread(target=new.roy)
-        thread2 = threading.Thread(target=flash_detect.getArduino, args=(ser, led))
+        thread2 = threading.Thread(target=flash_detect.getArduino, args=(ser, led,event))
         thread2.start()
         # thread6.start()
         # testVideo.timeSleep()
         # thread5 = threading.Thread(target=testVideo.pauseVideo)
         # thread5.start()
         # thread5.join()
+        for i in range(10):
+            event.clear()
+            time.sleep(4.5)
+
+            # Resume the thread
+            event.set()
+
         thread1.join()
         thread6.join()
         thread2.join()

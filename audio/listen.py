@@ -14,7 +14,7 @@ f = sr.AudioFile(r"C:\Users\Anuj\PycharmProjects\Project(video-audio)\audio\reco
 aud_tup = []
 Threshold_value = 200
 global event
-event=threading.Event()
+event1=threading.Event()
 class audio(object):
     def adjust(self, event: threading.Event) -> None:
         while True:
@@ -24,7 +24,7 @@ class audio(object):
                 break
 
 
-    def audio_return(self):
+    def audio_return(self,event):
         """
         Continuously listens for sound input from the microphone and returns the timestamp when a sound is detected.
 
@@ -38,7 +38,7 @@ class audio(object):
         print("----intilizing the microphone----")
         while True:
             if a > 10000:
-                event.set()
+                event1.set()
                 break
 
             sound_time = time.time()
@@ -53,8 +53,7 @@ class audio(object):
                 # time.sleep(1)
             else:
                 a += 1
-            # print("Set minimum energy threshold to {}".format(r.energy_threshold))
-
+            event.wait()
     def listen(self):
         """
             Uses the microphone to listen for speech input and returns the recognized text.
@@ -95,4 +94,4 @@ def audio_p():
     tt = audio()
     y = threading.Thread(target=tt.adjust,args=(event,))
     y.start()
-    tt.audio_return()
+    tt.audio_return(event)
